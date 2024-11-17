@@ -1,3 +1,6 @@
+from pdb import post_mortem
+from sys import exc_info
+
 """This code demonstrates a basic try-except block in
 Python to handle exceptions.
 It attempts to divide 1 by 0, which raises a ZeroDivisionError,
@@ -36,8 +39,10 @@ it prints the result.
 
 try:
     result = 1 / 3
-except ZeroDivisionError as err:
-    print(err)
+except ZeroDivisionError:
+    errors = exc_info()
+    print(errors)
+    post_mortem(errors[2])
 else:
     print(f'Your answer is {result}')
 
