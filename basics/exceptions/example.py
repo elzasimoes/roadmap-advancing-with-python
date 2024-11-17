@@ -8,7 +8,7 @@ try:
     print(1 / 0)
 except ZeroDivisionError:
     print('You cannot divide a value with zero')
-except:
+except Exception:
     print('Something else went wrong')
 
 
@@ -20,7 +20,7 @@ error message along with an explanation.
 """
 
 try:
-    with open('data.csv') as file:
+    with open('data.csv', encoding='utf-8') as file:
         read_data = file.read()
 except FileNotFoundError as fnf_error:
     print(fnf_error)
@@ -57,7 +57,8 @@ def divide(x, y):
         print('Please change `y` argument to non-zero value')
     except TypeError:
         print('Both `x` and `y` must be numbers')
+
     else:
         print(f'Your answer is {result}')
     finally:
-        print('\033[92m Code by DataCamp\033[00m')
+        print('# Execute with error or not')
